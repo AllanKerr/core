@@ -13,6 +13,7 @@
 		import '../../demo/demo-page.js';
 		import '../../inputs/input-text.js';
 		import '../tooltip.js';
+		import './button.js';
 	</script>
 	<style>
 		.boundary {
@@ -25,65 +26,137 @@
 			width: 350px;
 			height: 175px;
 		}
+		h1 {
+			padding-top: 30px;
+		}
+		h2 {
+			font-size: 1.3rem;
+		}
 	</style>
 </head>
 
 <body unresolved>
 
-	<d2l-demo-page page-title="d2l-tooltip">
+	<d2l-demo-page page-title="Tooltip Accessibility">
 
-		<h2>Tooltip (info)</h2>
+		<h1>Examples</h1>
+
+		<h2>Example 1</h2>
 		<d2l-demo-snippet>
 			<template>
-				<d2l-button id="tooltip-info">Hover for Info</d2l-button>
-				<d2l-tooltip for="tooltip-info">
-					Your info message will display here
+				<button id="example-1">Hover for Info</button>
+				<d2l-tooltip for="example-1">
+					Tooltip message
 				</d2l-tooltip>
 			</template>
 		</d2l-demo-snippet>
+		<h3>What gets announced?</h3>
+		<ul>
+			<li>NVDA - Hover for Info&nbsp;&nbsp;&nbsp;button&nbsp;&nbsp;&nbsp;Tooltip message</li>
+			<li>JAWS - Hover for Info&nbsp;&nbsp;&nbsp;button&nbsp;&nbsp;&nbsp;Tooltip message</li>
+			<li>VoiceOver - Hover for Info&nbsp;&nbsp;&nbsp;button&nbsp;&nbsp;&nbsp;Tooltip message</li>
+		</ul>
 
-		<h2>Tooltip (error)</h2>
+		<h2>Example 2</h2>
 		<d2l-demo-snippet>
 			<template>
-				<d2l-input-text placeholder="Hover for Error" id="tooltip-error" aria-invalid="true"></d2l-input-text>
-				<d2l-tooltip for="tooltip-error" state="error" align="start" offset="10">
-					Your error message will display here
+				<div tabindex="0" id="example-2">Hover for Info</div>
+				<d2l-tooltip for="example-2">
+					Tooltip message
 				</d2l-tooltip>
 			</template>
 		</d2l-demo-snippet>
+		<h3>What gets announced?</h3>
+		<ul>
+			<li>NVDA - Hover for Info</li>
+			<li>JAWS - Hover for Info&nbsp;&nbsp;&nbsp;Tooltip message</li>
+			<li>VoiceOver - Hover for Info</li>
+		</ul>
 
-		<h2>Tooltip (boundary)</h2>
+		<h2>Example 3</h2>
 		<d2l-demo-snippet>
 			<template>
-				<div class="boundary">
-					<d2l-button id="tooltip-boundary">Tooltip boundary</d2l-button>
-					<d2l-tooltip for="tooltip-boundary"
-						boundary="{&quot;top&quot;:0, &quot;bottom&quot;:0, &quot;left&quot;:0, &quot;right&quot;:0}">
-						This tooltip will not expand beyond its boundaries unless it is impossible to fit it inside
-					</d2l-tooltip>
-				</div>
-			</template>
-		</d2l-demo-snippet>
-
-		<h2>Tooltip (delay)</h2>
-		<d2l-demo-snippet>
-			<template>
-				<d2l-button id="tooltip-delay">Hover and Wait</d2l-button>
-				<d2l-tooltip for="tooltip-delay" delay="1000">
-					Your delayed message will display here
+				<d2l-button id="example-3">Hover for Info</d2l-button>
+				<d2l-tooltip for="example-3">
+					Tooltip message
 				</d2l-tooltip>
 			</template>
 		</d2l-demo-snippet>
+		<h3>What gets announced?</h3>
+		<ul>
+			<li>NVDA - Hover for Info&nbsp;&nbsp;&nbsp;button</li>
+			<li>JAWS - Hover for Info&nbsp;&nbsp;&nbsp;button</li>
+			<li>VoiceOver - Hover for Info&nbsp;&nbsp;&nbsp;button</li>
+		</ul>
 
-		<h2>Tooltip (force-show)</h2>
+		<h2>Example 4</h2>
 		<d2l-demo-snippet>
 			<template>
-				<d2l-button id="tooltip-force-show">Always visible</d2l-button>
-				<d2l-tooltip for="tooltip-force-show" force-show>
-					Always visible message
+				<d2l-button role="button" id="example-4">Hover for Info</d2l-button>
+				<d2l-tooltip for="example-4">
+					Tooltip message
 				</d2l-tooltip>
 			</template>
 		</d2l-demo-snippet>
+		<h3>What gets announced?</h3>
+		<ul>
+			<li>NVDA - Hover for Info&nbsp;&nbsp;&nbsp;button&nbsp;&nbsp;&nbsp;button&nbsp;&nbsp;&nbsp;Tooltip message</li>
+			<li>JAWS - Hover for Info&nbsp;&nbsp;&nbsp;button&nbsp;&nbsp;&nbsp;Tooltip message&nbsp;&nbsp;&nbsp;Hover for Info&nbsp;&nbsp;&nbsp;button&nbsp;&nbsp;&nbsp;Tooltip message </li>
+			<li>VoiceOver - Hover for Info&nbsp;&nbsp;&nbsp;button&nbsp;&nbsp;&nbsp;Tooltip message</li>
+		</ul>
+
+		<h1>What should I do to get it right?</h1>
+
+		<h2>Attach your tooltips to native interactive elements</h2>
+		<d2l-demo-snippet>
+			<template>
+				<a href="#" id="example-5">Anchor tag</a>
+				<d2l-tooltip for="example-5">
+					Tooltip message
+				</d2l-tooltip>
+			</template>
+		</d2l-demo-snippet>
+		<h3>What gets announced?</h3>
+		<ul>
+			<li>NVDA - Anchor tag&nbsp;&nbsp;&nbsp;link&nbsp;&nbsp;&nbsp;Tooltip message</li>
+			<li>JAWS - Anchor tag&nbsp;&nbsp;&nbsp;link&nbsp;&nbsp;&nbsp;Tooltip message</li>
+			<li>VoiceOver - link&nbsp;&nbsp;&nbsp;Anchor tag&nbsp;&nbsp;&nbsp;Tooltip message</li>
+		</ul>
+
+		<h2>Build tooltips into your custom elements</h2>
+		<d2l-demo-snippet>
+			<template>
+				<custom-button tooltip="Tooltip message">Custom</custom-button>
+			</template>
+		</d2l-demo-snippet>
+		<h3>What gets announced?</h3>
+		<ul>
+			<li>NVDA - Custom&nbsp;&nbsp;&nbsp;button&nbsp;&nbsp;&nbsp;Tooltip message</li>
+			<li>JAWS - Custom&nbsp;&nbsp;&nbsp;button&nbsp;&nbsp;&nbsp;Tooltip message</li>
+			<li>VoiceOver - Custom&nbsp;&nbsp;&nbsp;button&nbsp;&nbsp;&nbsp;Tooltip message</li>
+		</ul>
+
+		<h2>Add relevant interactive roles to your static or custom elements</h2>
+		<d2l-demo-snippet>
+			<template>
+				<div tabindex="0" role="checkbox" id="example-7">Static element</div>
+				<d2l-tooltip for="example-7">
+					Tooltip message
+				</d2l-tooltip>
+			</template>
+		</d2l-demo-snippet>
+		<h3>What gets announced?</h3>
+		<ul>
+			<li>NVDA - Static element&nbsp;&nbsp;&nbsp;checkbox&nbsp;&nbsp;&nbsp;not checked&nbsp;&nbsp;&nbsp;Tooltip message</li>
+			<li>JAWS - Static element&nbsp;&nbsp;&nbsp;checkbox&nbsp;&nbsp;&nbsp;not checked&nbsp;&nbsp;&nbsp;Tooltip message</li>
+			<li>VoiceOver - Static element&nbsp;&nbsp;&nbsp;unchecked&nbsp;&nbsp;&nbsp;checkbox&nbsp;&nbsp;&nbsp;Tooltip message</li>
+		</ul>
+
+		<h1>But none of these options work for me?</h1>
+		<ol>
+			<li>Use other options like aria-label on other elements or the Brightspace UI Core announce helper to explicitly announce important text.</li>
+			<li>Don't put critical information because its possible not all users will be able to access it.</li>
+		</ol>
 
 	</d2l-demo-page>
 

@@ -733,8 +733,11 @@ class Tooltip extends RtlMixin(LitElement) {
 	}
 
 	_updateTarget() {
-		this._removeListeners();
 		const target = this._findTarget();
+		if (target === this._target) {
+			return;
+		}
+		this._removeListeners();
 		if (target) {
 			this.id = this.id || getUniqueId();
 			this.setAttribute('role', 'tooltip');
