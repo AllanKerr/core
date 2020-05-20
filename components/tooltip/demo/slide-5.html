@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="../../demo/styles.css" type="text/css">
+	<script src="/node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
+	<script type="module">
+		import '../../button/button.js';
+		import '../../colors/colors.js';
+		import '../../demo/demo-page.js';
+		import '../../inputs/input-text.js';
+		import '../../hierarchical-view/hierarchical-view.js';
+		import '../tooltip.js';
+		import './button.js';
+		import '../../link/link.js';
+		import '../../expand-collapse/expand-collapse-content.js';
+	</script>
+	<style>
+		.slide {
+			position: relative;
+			height: 100vh;
+			width: 100vw;
+			box-sizing: border-box;
+			padding-left: 50px;
+			padding-right: 50px;
+		}
+
+		body {
+			background-color: white;
+			max-height: 100vh;
+		}
+
+		.announce-section {
+			padding-top: 25px;
+			padding-bottom: 25px;
+		}
+	</style>
+</head>
+
+<body unresolved>
+
+	<div id="slide-4" class="slide">
+		<h2>Example 4</h2>
+		<h3>Tooltip on a custom element with a role</h3>
+		<d2l-demo-snippet>
+			<template>
+				<custom-button role="button" id="example-4">Hover for Info</custom-button>
+				<d2l-tooltip for="example-4">Tooltip message</d2l-tooltip>
+			</template>
+		</d2l-demo-snippet>
+		<div class="announce-section">
+			<d2l-button class="announce">What gets announced?</d2l-button>
+			<d2l-expand-collapse-content class="announce-content">
+				<ul>
+					<li>NVDA - Hover for Info&nbsp;&nbsp;&nbsp;button&nbsp;&nbsp;&nbsp;button&nbsp;&nbsp;&nbsp;Tooltip
+						message</li>
+					<li>JAWS - Hover for Info&nbsp;&nbsp;&nbsp;button&nbsp;&nbsp;&nbsp;Tooltip
+						message&nbsp;&nbsp;&nbsp;Hover for
+						Info&nbsp;&nbsp;&nbsp;button&nbsp;&nbsp;&nbsp;Tooltip message </li>
+					<li>VoiceOver - Hover for Info&nbsp;&nbsp;&nbsp;button&nbsp;&nbsp;&nbsp;Tooltip message</li>
+				</ul>
+			</d2l-expand-collapse-content>
+			<script type="module">
+				const button = document.querySelector('#slide-4 .announce');
+				button.addEventListener('click', () => {
+					const section = document.querySelector('#slide-4 .announce-content');
+					section.expanded = !section.expanded;
+					button.setAttribute('aria-expanded', section.expanded ? 'true' : 'false');
+				});
+			</script>
+		</div>
+		<d2l-link href="./slide-4.html">← Previous</d2l-link>&nbsp;/&nbsp;<d2l-link href="./slide-6.html">Next →
+		</d2l-link>
+	</div>
+
+</body>
+
+</html>

@@ -75,7 +75,8 @@ class Button extends ButtonMixin(LitElement) {
 				type="${this._getType()}">
 				<slot></slot>
 			</button>
-			<d2l-tooltip for="target">${this.tooltip}</d2l-tooltip>
+			${this.tooltip ? html`<d2l-tooltip for="target">${this.tooltip}</d2l-tooltip>` : null }
+
 		`;
 	}
 }

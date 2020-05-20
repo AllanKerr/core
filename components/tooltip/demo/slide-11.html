@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="../../demo/styles.css" type="text/css">
+	<script src="/node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
+	<script type="module">
+		import '../../button/button.js';
+		import '../../colors/colors.js';
+		import '../../demo/demo-page.js';
+		import '../../inputs/input-text.js';
+		import '../../hierarchical-view/hierarchical-view.js';
+		import '../tooltip.js';
+		import './button.js';
+		import '../../link/link.js';
+		import '../../expand-collapse/expand-collapse-content.js';
+	</script>
+	<style>
+		.slide {
+			position: relative;
+			box-sizing: border-box;
+			padding-left: 50px;
+			padding-right: 50px;
+		}
+
+		.announce-section {
+			padding-top: 25px;
+			padding-bottom: 25px;
+		}
+		p {
+			margin: 0 !important;
+		}
+		.end {
+			padding-top: 100px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+	</style>
+</head>
+
+<body unresolved>
+
+	<div id="slide-9" class="slide">
+			<h1>Questions?</h1>
+			<h2>Ask in the #gaad2020 Slack channel</h2>
+			<div class="end">
+				<d2l-tooltip force-show position="top" for="clip">
+					<p>Now you know what makes tooltips accessible!</p>
+				</d2l-tooltip>
+				<img id="clip" src="./clip.jpg"></img>
+			</div>
+		<d2l-link href="./slide-10.html">← Previous</d2l-link>
+		</d2l-link>
+	</div>
+
+</body>
+
+</html>

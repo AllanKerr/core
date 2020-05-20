@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="../../demo/styles.css" type="text/css">
+	<script src="/node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
+	<script type="module">
+		import '../../button/button.js';
+		import '../../colors/colors.js';
+		import '../../demo/demo-page.js';
+		import '../../inputs/input-text.js';
+		import '../../hierarchical-view/hierarchical-view.js';
+		import '../tooltip.js';
+		import './button.js';
+		import '../../link/link.js';
+		import '../../expand-collapse/expand-collapse-content.js';
+	</script>
+	<style>
+		.slide {
+			position: relative;
+			box-sizing: border-box;
+			padding-left: 50px;
+			padding-right: 50px;
+		}
+
+		.announce-section {
+			padding-top: 25px;
+			padding-bottom: 25px;
+		}
+	</style>
+</head>
+
+<body unresolved>
+
+	<div class="slide">
+		<h1>What should I do to get it right?</h1>
+
+		<div>
+			<img id="clip" src="./sad-clip.png"></img>
+		</div>
+		<d2l-link href="./slide-5.html">← Previous</d2l-link>&nbsp;/&nbsp;<d2l-link href="./slide-7.html">Next →
+		</d2l-link>
+	</div>
+
+</body>
+
+</html>
